@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"ru.spbstu.telematics.java"},{"l":"ru.spbstu.telematics.java.lab1"},{"l":"ru.spbstu.telematics.java.lab2"},{"l":"ru.spbstu.telematics.java.lab2.arraylist"},{"l":"ru.spbstu.telematics.java.lab2.bag"},{"l":"ru.spbstu.telematics.java.lab2.linkedlist"}];updateSearchResults();
