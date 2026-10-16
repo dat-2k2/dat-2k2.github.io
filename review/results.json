@@ -1,7 +1,7 @@
 {
   "url": "https://dat-2k2.github.io",
-  "ranAt": "2026-10-16T15:40:41.896Z",
-  "durationMs": 23179,
+  "ranAt": "2026-10-16T15:45:01.349Z",
+  "durationMs": 27400,
   "passed": 41,
   "failed": 0,
   "results": [
@@ -143,7 +143,7 @@
     },
     {
       "ok": true,
-      "msg": "theme toggle: light → dark (data-theme=dark, bg rgb(250, 250, 249) → rgb(12, 10, 9), saved=dark)"
+      "msg": "theme toggle: light → dark (data-theme=dark, bg rgb(250, 250, 249) → rgb(13, 11, 10), saved=dark)"
     },
     {
       "ok": true,
@@ -159,15 +159,15 @@
     },
     {
       "ok": true,
-      "msg": "prefers-reduced-motion: all 6 reveal sections fully visible without scrolling (0 hidden)"
+      "msg": "prefers-reduced-motion: all 35 reveal sections fully visible without scrolling (0 hidden)"
     },
     {
       "ok": true,
-      "msg": "axe-core (light): 0 violation rule(s), 0 serious/critical, 41 rules passed"
+      "msg": "axe-core (light): 0 violation rule(s), 0 serious/critical, 42 rules passed"
     },
     {
       "ok": true,
-      "msg": "axe-core (dark): 0 violation rule(s), 0 serious/critical, 41 rules passed"
+      "msg": "axe-core (dark): 0 violation rule(s), 0 serious/critical, 42 rules passed"
     }
   ]
 }
