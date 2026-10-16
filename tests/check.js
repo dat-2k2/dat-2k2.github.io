@@ -31,6 +31,19 @@ const log = (ok, msg) => {
   if (!ok) problems.push(msg);
 };
 
+async function scrollThrough(page) {
+  const h = await page.evaluate(() => document.documentElement.scrollHeight);
+  for (let y = 0; y < h; y += 600) { await page.evaluate((v) => window.scrollTo(0, v), y); await page.waitForTimeout(60); }
+  await page.evaluate(() => window.scrollTo(0, 0));
+  // wait for every (lazy) image to finish loading
+  // (hidden images never load; give up after 4 s so a display:none thumbnail can't hang the run)
+  await page.evaluate(() => Promise.race([
+    Promise.all([...document.images].filter((i) => i.offsetParent !== null).map((i) => (i.complete ? null : new Promise((r) => { i.onload = i.onerror = r; })))),
+    new Promise((r) => setTimeout(r, 4000)),
+  ]));
+  await page.waitForTimeout(400);
+}
+
 async function checkLink(href, ctx) {
   if (href.startsWith("mailto:")) {
     const addr = href.slice(7).split("?")[0];
@@ -70,9 +83,19 @@ async function checkLink(href, ctx) {
       const resp = await page.goto(BASE_URL + "/", { waitUntil: "networkidle", timeout: 60000 });
       log(resp && resp.ok(), `${vp.name} ${scheme}: GET / → HTTP ${resp && resp.status()}`);
       await page.evaluate(() => document.fonts.ready);
-      // reveal everything so the full-page screenshot isn't half-faded
+      // scroll through once so lazy images load, then reveal everything so the screenshot isn't half-faded
+      await scrollThrough(page);
       await page.evaluate(() => document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in")));
       await page.waitForTimeout(1200);
+      if (process.env.DEBUG_IMAGES) console.log("      images:", JSON.stringify(await page.$$eval("img", (els) => els.map((i) => [i.getAttribute("src").split("/").pop(), i.complete, i.naturalWidth, i.clientWidth, getComputedStyle(i).visibility, getComputedStyle(i.parentElement).opacity]))));
+      // force image decode, and warm the raster with a throwaway capture (async-decoded images can
+      // otherwise come out blank in a full-page screenshot)
+      await page.evaluate(() => Promise.race([
+        Promise.all([...document.images].filter((i) => i.offsetParent !== null).map((i) => i.decode().catch(() => {}))),
+        new Promise((r) => setTimeout(r, 3000)),
+      ]));
+      await page.screenshot({ fullPage: true });
+      await page.waitForTimeout(300);
       const file = path.join(OUT, `${vp.name}-${scheme}.png`);
       await page.screenshot({ path: file, fullPage: true });
       console.log(`      screenshot → ${path.relative(process.cwd(), file)}`);
@@ -92,6 +115,7 @@ async function checkLink(href, ctx) {
   const page = await ctx.newPage();
   await page.goto(BASE_URL + "/", { waitUntil: "networkidle", timeout: 60000 });
 
+  await scrollThrough(page);
   const hrefs = await page.$$eval("a[href]", (as) => [...new Set(as.map((a) => a.getAttribute("href")))]);
   for (const href of hrefs) {
     if (href.startsWith("#")) {
@@ -103,6 +127,10 @@ async function checkLink(href, ctx) {
     const r = await checkLink(href, ctx);
     log(r.ok, `link ${href}: ${r.note}`);
   }
+
+  // Images: every <img> must have loaded with real dimensions and have alt text.
+  const imgs = await page.$$eval("img", (els) => els.filter((i) => i.offsetParent !== null).map((i) => ({ src: i.getAttribute("src"), ok: i.complete && i.naturalWidth > 0, alt: i.getAttribute("alt") })));
+  for (const im of imgs) log(im.ok && typeof im.alt === "string" && im.alt.length > 0, `image ${im.src}: ${im.ok ? "loaded" : "FAILED to load"}${im.alt ? "" : ", missing alt"}`);
 
   // Theme toggle: click → data-theme set, bg changes, persisted, click back.
   const before = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);

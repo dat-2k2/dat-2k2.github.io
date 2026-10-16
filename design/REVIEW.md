@@ -52,3 +52,11 @@ No BLOCKING findings. Nits raised and what was done with them (applied after the
 
 Also added after the PASS, from Dat's proof links: Base Wework and Base Office are linked from the Base.vn role.
 The `design/*.png` exports are the frames after these changes.
+
+## Post-review additions — product imagery
+
+Dat asked for images of the work. Raw landing-page captures were rejected (they bring other brands' palettes,
+nav bars and headlines into the page). Instead, the product UI was cropped out of the public pages and set on
+uniform 16:10 tiles (`assets/work/*.webp`, 20–90 KB each, lazy-loaded): NewHub's app mock on its project card,
+Base Office / Base Wework UI as a two-up under the Base.vn role, and the Shor-code circuit from `quantum-labs`
+as a thumbnail on its repo row. Crawl script and originals are not committed.

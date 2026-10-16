@@ -502,11 +502,34 @@ img, svg { display: block; max-width: 100%; }
 .filter-vis rect.n { fill: var(--accent); }
 .filter-vis .a { fill: none; stroke: var(--text-subtle); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
+/* Work screenshots */
+.shot {
+  display: block;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border-card);
+  background: var(--surface-2);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 220ms ease, border-color 220ms ease;
+}
+.shot img { width: 100%; height: auto; aspect-ratio: 1200 / 750; object-fit: contain; display: block; }
+@media (hover: hover) { .shot:hover { transform: translateY(-2px); border-color: var(--text-subtle); } }
+.shots { display: grid; gap: var(--s-4); padding-top: var(--s-4); }
+@media (min-width: 640px) { .shots { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.shots li { display: grid; gap: var(--s-2); }
+.shot-cap { display: block; }
+.repo-thumb {
+  width: 140px; height: auto; aspect-ratio: 1000 / 482; object-fit: cover;
+  border-radius: var(--r-sm); border: 1px solid var(--border); background: #fff; padding: 4px;
+}
+@media (max-width: 639px) { .repo-thumb { display: none; } }
+
 .repos { display: grid; padding-top: var(--s-6); }
 .repos > .label { color: var(--text-subtle); }
 .repo {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
   gap: var(--s-6);
   padding-block: var(--s-5, 20px);
   border-bottom: 1px solid var(--border);

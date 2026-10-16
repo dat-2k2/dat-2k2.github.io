@@ -9,6 +9,7 @@ index.html      the one-page site
 styles.css      tokens (light/dark), type scale, layout
 script.js       theme toggle, scroll reveal, footer year
 fonts/          Geist + Geist Mono (variable, latin subset, self-hosted)
+assets/work/    product-UI tiles (NewHub, Base Office, Base Wework) and quantum-labs figures
 design/         Figma exports (desktop 1440 / mobile 390, light + dark), Mobbin references, review log
 tests/          Playwright + axe-core check (npm run check) and Lighthouse (npm run perf) → review/
 review/         latest live-site screenshots and results
