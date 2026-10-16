@@ -1,0 +1,173 @@
+{
+  "url": "https://dat-2k2.github.io",
+  "ranAt": "2026-10-16T15:40:41.896Z",
+  "durationMs": 23179,
+  "passed": 41,
+  "failed": 0,
+  "results": [
+    {
+      "ok": true,
+      "msg": "desktop-1440 light: GET / → HTTP 200"
+    },
+    {
+      "ok": true,
+      "msg": "desktop-1440 light: no console errors"
+    },
+    {
+      "ok": true,
+      "msg": "desktop-1440 light: no horizontal scroll (scrollWidth 1440 ≤ innerWidth 1440)"
+    },
+    {
+      "ok": true,
+      "msg": "desktop-1440 light: prefers-color-scheme honoured (body bg rgb(250, 250, 249))"
+    },
+    {
+      "ok": true,
+      "msg": "desktop-1440 dark: GET / → HTTP 200"
+    },
+    {
+      "ok": true,
+      "msg": "desktop-1440 dark: no console errors"
+    },
+    {
+      "ok": true,
+      "msg": "desktop-1440 dark: no horizontal scroll (scrollWidth 1440 ≤ innerWidth 1440)"
+    },
+    {
+      "ok": true,
+      "msg": "desktop-1440 dark: prefers-color-scheme honoured (body bg rgb(12, 10, 9))"
+    },
+    {
+      "ok": true,
+      "msg": "mobile-390 light: GET / → HTTP 200"
+    },
+    {
+      "ok": true,
+      "msg": "mobile-390 light: no console errors"
+    },
+    {
+      "ok": true,
+      "msg": "mobile-390 light: no horizontal scroll (scrollWidth 390 ≤ innerWidth 390)"
+    },
+    {
+      "ok": true,
+      "msg": "mobile-390 light: prefers-color-scheme honoured (body bg rgb(250, 250, 249))"
+    },
+    {
+      "ok": true,
+      "msg": "mobile-390 dark: GET / → HTTP 200"
+    },
+    {
+      "ok": true,
+      "msg": "mobile-390 dark: no console errors"
+    },
+    {
+      "ok": true,
+      "msg": "mobile-390 dark: no horizontal scroll (scrollWidth 390 ≤ innerWidth 390)"
+    },
+    {
+      "ok": true,
+      "msg": "mobile-390 dark: prefers-color-scheme honoured (body bg rgb(12, 10, 9))"
+    },
+    {
+      "ok": true,
+      "msg": "link #main: target element exists"
+    },
+    {
+      "ok": true,
+      "msg": "link #top: target element exists"
+    },
+    {
+      "ok": true,
+      "msg": "link #about: target element exists"
+    },
+    {
+      "ok": true,
+      "msg": "link #experience: target element exists"
+    },
+    {
+      "ok": true,
+      "msg": "link #projects: target element exists"
+    },
+    {
+      "ok": true,
+      "msg": "link #skills: target element exists"
+    },
+    {
+      "ok": true,
+      "msg": "link #education: target element exists"
+    },
+    {
+      "ok": true,
+      "msg": "link #contact: target element exists"
+    },
+    {
+      "ok": true,
+      "msg": "link mailto:work.dat2002@gmail.com?subject=Project%20inquiry: mailto well-formed"
+    },
+    {
+      "ok": true,
+      "msg": "link https://github.com/dat-2k2: HTTP 200"
+    },
+    {
+      "ok": true,
+      "msg": "link https://www.linkedin.com/in/dat2002: HTTP 999 (LinkedIn bot wall; URL valid)"
+    },
+    {
+      "ok": true,
+      "msg": "link https://base.vn/app/wework: HTTP 200"
+    },
+    {
+      "ok": true,
+      "msg": "link https://base.vn/app/office: HTTP 200"
+    },
+    {
+      "ok": true,
+      "msg": "link https://newhub.vn: HTTP 200"
+    },
+    {
+      "ok": true,
+      "msg": "link https://github.com/dat-2k2/ShaderTestbed: HTTP 200"
+    },
+    {
+      "ok": true,
+      "msg": "link https://github.com/dat-2k2/quantum-labs: HTTP 200"
+    },
+    {
+      "ok": true,
+      "msg": "link https://github.com/dat-2k2/IAM: HTTP 200"
+    },
+    {
+      "ok": true,
+      "msg": "link mailto:work.dat2002@gmail.com: mailto well-formed"
+    },
+    {
+      "ok": true,
+      "msg": "theme toggle: light → dark (data-theme=dark, bg rgb(250, 250, 249) → rgb(12, 10, 9), saved=dark)"
+    },
+    {
+      "ok": true,
+      "msg": "theme toggle: choice persists across reload (data-theme=dark)"
+    },
+    {
+      "ok": true,
+      "msg": "theme toggle: dark → light (data-theme=light)"
+    },
+    {
+      "ok": true,
+      "msg": "theme toggle: aria-label updates (\"Switch to dark theme\")"
+    },
+    {
+      "ok": true,
+      "msg": "prefers-reduced-motion: all 6 reveal sections fully visible without scrolling (0 hidden)"
+    },
+    {
+      "ok": true,
+      "msg": "axe-core (light): 0 violation rule(s), 0 serious/critical, 41 rules passed"
+    },
+    {
+      "ok": true,
+      "msg": "axe-core (dark): 0 violation rule(s), 0 serious/critical, 41 rules passed"
+    }
+  ]
+}
