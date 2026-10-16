@@ -1,8 +1,8 @@
 {
   "url": "https://dat-2k2.github.io",
-  "ranAt": "2026-10-16T15:45:01.349Z",
-  "durationMs": 27400,
-  "passed": 41,
+  "ranAt": "2026-10-16T16:28:19.678Z",
+  "durationMs": 39093,
+  "passed": 45,
   "failed": 0,
   "results": [
     {
@@ -143,6 +143,22 @@
     },
     {
       "ok": true,
+      "msg": "image assets/work/base-office-ui.webp: loaded"
+    },
+    {
+      "ok": true,
+      "msg": "image assets/work/base-wework-ui.webp: loaded"
+    },
+    {
+      "ok": true,
+      "msg": "image assets/work/newhub-ui.webp: loaded"
+    },
+    {
+      "ok": true,
+      "msg": "image assets/work/quantum-shor-circuit.webp: loaded"
+    },
+    {
+      "ok": true,
       "msg": "theme toggle: light → dark (data-theme=dark, bg rgb(250, 250, 249) → rgb(13, 11, 10), saved=dark)"
     },
     {
@@ -163,11 +179,11 @@
     },
     {
       "ok": true,
-      "msg": "axe-core (light): 0 violation rule(s), 0 serious/critical, 42 rules passed"
+      "msg": "axe-core (light): 0 violation rule(s), 0 serious/critical, 44 rules passed"
     },
     {
       "ok": true,
-      "msg": "axe-core (dark): 0 violation rule(s), 0 serious/critical, 42 rules passed"
+      "msg": "axe-core (dark): 0 violation rule(s), 0 serious/critical, 44 rules passed"
     }
   ]
 }
