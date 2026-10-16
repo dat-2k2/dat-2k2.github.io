@@ -17,6 +17,7 @@ const BASE_URL = process.env.BASE_URL || "https://dat-2k2.github.io";
 const OUT = path.resolve(__dirname, "..", "review");
 fs.mkdirSync(OUT, { recursive: true });
 
+const PAGES = [["", "home"], ["projects/", "projects"]];
 const VIEWPORTS = [
   { name: "desktop-1440", width: 1440, height: 900 },
   { name: "mobile-390", width: 390, height: 844 },
@@ -72,7 +73,7 @@ async function checkLink(href, ctx) {
   const t0 = Date.now();
 
   // --- 1. Screenshots + console + horizontal scroll, per viewport/scheme ---
-  for (const vp of VIEWPORTS) {
+  for (const [pagePath, pageName] of PAGES) for (const vp of VIEWPORTS) {
     for (const scheme of SCHEMES) {
       const ctx = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, colorScheme: scheme, deviceScaleFactor: 1 });
       const page = await ctx.newPage();
@@ -80,8 +81,8 @@ async function checkLink(href, ctx) {
       page.on("console", (m) => { if (m.type() === "error") errors.push(m.text()); });
       page.on("pageerror", (e) => errors.push(String(e)));
       page.on("requestfailed", (r) => errors.push(`request failed: ${r.url()} (${r.failure() && r.failure().errorText})`));
-      const resp = await page.goto(BASE_URL + "/", { waitUntil: "networkidle", timeout: 60000 });
-      log(resp && resp.ok(), `${vp.name} ${scheme}: GET / → HTTP ${resp && resp.status()}`);
+      const resp = await page.goto(BASE_URL + "/" + pagePath, { waitUntil: "networkidle", timeout: 60000 });
+      log(resp && resp.ok(), `${pageName} ${vp.name} ${scheme}: GET /${pagePath} → HTTP ${resp && resp.status()}`);
       await page.evaluate(() => document.fonts.ready);
       // scroll through once so lazy images load, then reveal everything so the screenshot isn't half-faded
       await scrollThrough(page);
@@ -96,16 +97,16 @@ async function checkLink(href, ctx) {
       ]));
       await page.screenshot({ fullPage: true });
       await page.waitForTimeout(300);
-      const file = path.join(OUT, `${vp.name}-${scheme}.png`);
+      const file = path.join(OUT, `${pageName === "home" ? "" : pageName + "-"}${vp.name}-${scheme}.png`);
       await page.screenshot({ path: file, fullPage: true });
       console.log(`      screenshot → ${path.relative(process.cwd(), file)}`);
-      log(errors.length === 0, `${vp.name} ${scheme}: no console errors${errors.length ? " — " + errors.join(" | ") : ""}`);
+      log(errors.length === 0, `${pageName} ${vp.name} ${scheme}: no console errors${errors.length ? " — " + errors.join(" | ") : ""}`);
       const [sw, iw] = await page.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]);
-      log(sw <= iw, `${vp.name} ${scheme}: no horizontal scroll (scrollWidth ${sw} ≤ innerWidth ${iw})`);
+      log(sw <= iw, `${pageName} ${vp.name} ${scheme}: no horizontal scroll (scrollWidth ${sw} ≤ innerWidth ${iw})`);
       const applied = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
       const expectDark = scheme === "dark";
       const isDark = /rgb\(12, 10, 9\)/.test(applied);
-      log(isDark === expectDark, `${vp.name} ${scheme}: prefers-color-scheme honoured (body bg ${applied})`);
+      log(isDark === expectDark, `${pageName} ${vp.name} ${scheme}: prefers-color-scheme honoured (body bg ${applied})`);
       await ctx.close();
     }
   }
@@ -113,24 +114,29 @@ async function checkLink(href, ctx) {
   // --- 2. Links, theme toggle, axe (desktop light) ------------------------
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "light" });
   const page = await ctx.newPage();
-  await page.goto(BASE_URL + "/", { waitUntil: "networkidle", timeout: 60000 });
-
-  await scrollThrough(page);
-  const hrefs = await page.$$eval("a[href]", (as) => [...new Set(as.map((a) => a.getAttribute("href")))]);
-  for (const href of hrefs) {
-    if (href.startsWith("#")) {
-      const id = href.slice(1);
-      const exists = await page.evaluate((i) => !!document.getElementById(i), id);
-      log(exists, `link ${href}: target element exists`);
-      continue;
+  const checked = new Set();
+  for (const [pagePath, pageName] of PAGES) {
+    await page.goto(BASE_URL + "/" + pagePath, { waitUntil: "networkidle", timeout: 60000 });
+    await scrollThrough(page);
+    const hrefs = await page.$$eval("a[href]", (as) => [...new Set(as.map((a) => a.getAttribute("href")))]);
+    for (const href of hrefs) {
+      if (href.startsWith("#")) {
+        const id = href.slice(1);
+        const exists = await page.evaluate((i) => !!document.getElementById(i), id);
+        log(exists, `${pageName}: link ${href}: target element exists`);
+        continue;
+      }
+      const abs = new URL(href, BASE_URL + "/" + pagePath).href;
+      if (checked.has(abs)) continue;
+      checked.add(abs);
+      const r = await checkLink(abs, ctx);
+      log(r.ok, `${pageName}: link ${href}: ${r.note}`);
     }
-    const r = await checkLink(href, ctx);
-    log(r.ok, `link ${href}: ${r.note}`);
+    // Images: every visible <img> must have loaded with real dimensions and have alt text.
+    const imgs = await page.$$eval("img", (els) => els.filter((i) => i.offsetParent !== null).map((i) => ({ src: i.getAttribute("src"), ok: i.complete && i.naturalWidth > 0, alt: i.getAttribute("alt") })));
+    for (const im of imgs) log(im.ok && typeof im.alt === "string" && im.alt.length > 0, `${pageName}: image ${im.src}: ${im.ok ? "loaded" : "FAILED to load"}${im.alt ? "" : ", missing alt"}`);
   }
-
-  // Images: every <img> must have loaded with real dimensions and have alt text.
-  const imgs = await page.$$eval("img", (els) => els.filter((i) => i.offsetParent !== null).map((i) => ({ src: i.getAttribute("src"), ok: i.complete && i.naturalWidth > 0, alt: i.getAttribute("alt") })));
-  for (const im of imgs) log(im.ok && typeof im.alt === "string" && im.alt.length > 0, `image ${im.src}: ${im.ok ? "loaded" : "FAILED to load"}${im.alt ? "" : ", missing alt"}`);
+  await page.goto(BASE_URL + "/", { waitUntil: "networkidle", timeout: 60000 });
 
   // Theme toggle: click → data-theme set, bg changes, persisted, click back.
   const before = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
@@ -156,18 +162,18 @@ async function checkLink(href, ctx) {
   await rm.close();
 
   // axe-core
-  for (const scheme of SCHEMES) {
+  for (const [pagePath, pageName] of PAGES) for (const scheme of SCHEMES) {
     const actx = await browser.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: scheme });
     const apage = await actx.newPage();
-    await apage.goto(BASE_URL + "/", { waitUntil: "networkidle" });
+    await apage.goto(BASE_URL + "/" + pagePath, { waitUntil: "networkidle" });
     await apage.evaluate(() => document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in")));
     await apage.waitForTimeout(1200); // let the staggered reveal finish so axe samples final colours
     await apage.addScriptTag({ content: axeSource });
     const axe = await apage.evaluate(async () => await window.axe.run(document, { runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "best-practice"] } }));
     const serious = axe.violations.filter((v) => v.impact === "serious" || v.impact === "critical");
-    log(serious.length === 0, `axe-core (${scheme}): ${axe.violations.length} violation rule(s), ${serious.length} serious/critical, ${axe.passes.length} rules passed`);
+    log(serious.length === 0, `axe-core ${pageName} (${scheme}): ${axe.violations.length} violation rule(s), ${serious.length} serious/critical, ${axe.passes.length} rules passed`);
     for (const v of axe.violations) console.log(`      [${v.impact}] ${v.id}: ${v.help} — ${v.nodes.length} node(s): ${v.nodes.slice(0, 3).map((n) => n.target.join(" ")).join("; ")}`);
-    fs.writeFileSync(path.join(OUT, `axe-${scheme}.json`), JSON.stringify(axe.violations, null, 2));
+    fs.writeFileSync(path.join(OUT, `axe-${pageName === "home" ? "" : pageName + "-"}${scheme}.json`), JSON.stringify(axe.violations, null, 2));
     await actx.close();
   }
 

@@ -60,3 +60,10 @@ nav bars and headlines into the page). Instead, the product UI was cropped out o
 uniform 16:10 tiles (`assets/work/*.webp`, 20–90 KB each, lazy-loaded): NewHub's app mock on its project card,
 Base Office / Base Wework UI as a two-up under the Base.vn role, and the Shor-code circuit from `quantum-labs`
 as a thumbnail on its repo row. Crawl script and originals are not committed.
+
+## /projects/ page — added later
+
+A second page, designed in Figma on the same tokens (frames "Projects — Desktop 1440 / Mobile 390",
+exports `design/projects-*.png`). Scope was narrowed by Dat to the three demos built today —
+Quantum Labs, Shader Testbed, FuncProg — so the filter chips, code-only cards and coursework list in the
+first draft were removed. The home page's repo rows now show the same three live demos.

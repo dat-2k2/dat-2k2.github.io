@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects — Nguyen Quoc Dat</title>
+  <meta name="description" content="Live, interactive demos by Nguyen Quoc Dat: Quantum Labs (11 quantum algorithms with an in-browser simulator), Shader Testbed (a WebGL raymarcher with a live GLSL editor) and FuncProg (Haskell coursework running in the browser).">
+  <meta name="author" content="Nguyen Quoc Dat">
+  <link rel="canonical" href="https://dat-2k2.github.io/projects/">
+  <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0a09" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nguyen Quoc Dat">
+  <meta property="og:title" content="Projects — Nguyen Quoc Dat">
+  <meta property="og:description" content="Interactive demos that run in the browser: Quantum Labs, Shader Testbed and FuncProg, with source on GitHub.">
+  <meta property="og:url" content="https://dat-2k2.github.io/projects/">
+  <meta property="og:image" content="https://dat-2k2.github.io/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Projects — Nguyen Quoc Dat">
+  <meta name="twitter:description" content="Interactive demos that run in the browser: Quantum Labs, Shader Testbed and FuncProg, with source on GitHub.">
+  <meta name="twitter:image" content="https://dat-2k2.github.io/og.png">
+
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../favicon.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+
+  <link rel="preload" href="../fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../styles.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="wrap nav" aria-label="Primary">
+      <a class="brand" href="../">
+        <span class="brand-mark" aria-hidden="true">D</span>
+        <span class="brand-name">Nguyen Quoc Dat</span>
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../">Home</a></li>
+          <li><a href="./" aria-current="page">Projects</a></li>
+        </ul>
+        <a class="btn btn-primary nav-cta" href="mailto:work.dat2002@gmail.com?subject=Project%20inquiry">Hire me</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="wrap">
+    <header class="page-head">
+      <p class="label" style="color: var(--accent)">Projects · 3 live demos</p>
+      <h1 class="h2">Everything I’ve built in public.</h1>
+      <p class="lead muted page-lead">Interactive demos that run in the browser — open them, play with them, read the source.</p>
+    </header>
+
+    <section class="catalog" aria-label="Projects">
+      <article class="pcard" id="quantum-labs">
+        <a class="pcard-tile" href="https://dat-2k2.github.io/quantum-labs/" target="_blank" rel="noopener" aria-label="Open the Quantum Labs demo (new tab)">
+          <img src="../assets/work/quantum-labs-site.webp" width="1200" height="750" alt="Quantum Labs site: hero with a Bloch sphere and the list of interactive labs" loading="lazy" decoding="async">
+        </a>
+        <div class="pcard-body">
+          <h2 class="h3">Quantum Labs <span class="live-pill label"><span class="live-dot" aria-hidden="true"></span>Live</span></h2>
+          <p class="small muted">Eleven quantum algorithms from coursework — QRNG, Deutsch–Jozsa, Grover, Simon, QFT, phase estimation, teleportation, BB84, Shor, 9-qubit error correction — rebuilt as interactive circuits with an in-browser simulator.</p>
+          <ul class="tags" aria-label="Stack"><li class="tag mono">Python</li><li class="tag mono">Qiskit</li><li class="tag mono">JavaScript</li></ul>
+          <p class="pcard-links"><a class="ext demo" href="https://dat-2k2.github.io/quantum-labs/" target="_blank" rel="noopener">Open demo</a><a class="ext" href="https://github.com/dat-2k2/quantum-labs" target="_blank" rel="noopener">Code</a></p>
+        </div>
+      </article>
+
+      <article class="pcard" id="shader-testbed">
+        <a class="pcard-tile" href="https://dat-2k2.github.io/shader-sandbox/" target="_blank" rel="noopener" aria-label="Open the Shader Testbed demo (new tab)">
+          <img src="../assets/work/shader-sandbox-site.webp" width="1200" height="750" alt="Shader Testbed demo: red raymarched spheres with a control panel and GLSL editor" loading="lazy" decoding="async">
+        </a>
+        <div class="pcard-body">
+          <h2 class="h3">Shader Testbed <span class="live-pill label"><span class="live-dot" aria-hidden="true"></span>Live</span></h2>
+          <p class="small muted">Raymarched spheres shaded with the Unreal Engine 4 microfacet model; live GLSL editor with material and light controls. Desktop Java/LWJGL version in the same repo.</p>
+          <ul class="tags" aria-label="Stack"><li class="tag mono">GLSL</li><li class="tag mono">WebGL</li><li class="tag mono">Java</li><li class="tag mono">LWJGL</li></ul>
+          <p class="pcard-links"><a class="ext demo" href="https://dat-2k2.github.io/shader-sandbox/" target="_blank" rel="noopener">Open demo</a><a class="ext" href="https://github.com/dat-2k2/shader-sandbox" target="_blank" rel="noopener">Code</a></p>
+        </div>
+      </article>
+      <p class="catalog-empty small muted" hidden>No projects in this category yet.</p>
+      <article class="pcard" id="funcprog">
+        <a class="pcard-tile" href="https://dat-2k2.github.io/FuncProg/" target="_blank" rel="noopener" aria-label="Open the FuncProg demo (new tab)">
+          <img src="../assets/work/funcprog-site.webp" width="1200" height="750" alt="FuncProg site: functional programming assignments running in the browser" loading="lazy" decoding="async">
+        </a>
+        <div class="pcard-body">
+          <h2 class="h3">FuncProg <span class="live-pill label"><span class="live-dot" aria-hidden="true"></span>Live</span></h2>
+          <p class="small muted">Functional programming coursework in Haskell — fractals, the rookie problem and a trust-game simulation — ported to JavaScript and runnable in the browser, with tests that check the JS ports against the Haskell originals.</p>
+          <ul class="tags" aria-label="Stack"><li class="tag mono">Haskell</li><li class="tag mono">JavaScript</li><li class="tag mono">GitHub Pages</li></ul>
+          <p class="pcard-links"><a class="ext demo" href="https://dat-2k2.github.io/FuncProg/" target="_blank" rel="noopener">Open demo</a><a class="ext" href="https://github.com/dat-2k2/FuncProg" target="_blank" rel="noopener">Code</a></p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="wrap site-footer">
+    <p class="small">© <span id="year">2026</span> Nguyen Quoc Dat</p>
+    <p class="mono subtle"><a href="../">← Back to home</a></p>
+  </footer>
+
+  <script src="../script.js" defer></script>
+</body>
+</html>
