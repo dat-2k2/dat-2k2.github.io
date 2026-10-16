@@ -72,7 +72,7 @@ async function checkLink(href, ctx) {
       await page.evaluate(() => document.fonts.ready);
       // reveal everything so the full-page screenshot isn't half-faded
       await page.evaluate(() => document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in")));
-      await page.waitForTimeout(300);
+      await page.waitForTimeout(1200);
       const file = path.join(OUT, `${vp.name}-${scheme}.png`);
       await page.screenshot({ path: file, fullPage: true });
       console.log(`      screenshot → ${path.relative(process.cwd(), file)}`);
@@ -133,7 +133,7 @@ async function checkLink(href, ctx) {
     const apage = await actx.newPage();
     await apage.goto(BASE_URL + "/", { waitUntil: "networkidle" });
     await apage.evaluate(() => document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in")));
-    await apage.waitForTimeout(800); // let the reveal transition finish so axe samples final colours
+    await apage.waitForTimeout(1200); // let the staggered reveal finish so axe samples final colours
     await apage.addScriptTag({ content: axeSource });
     const axe = await apage.evaluate(async () => await window.axe.run(document, { runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "best-practice"] } }));
     const serious = axe.violations.filter((v) => v.impact === "serious" || v.impact === "critical");
