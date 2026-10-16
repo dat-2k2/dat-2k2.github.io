@@ -288,8 +288,8 @@ img, svg { display: block; max-width: 100%; }
   background-image: radial-gradient(circle, var(--dot) 1.5px, transparent 1.6px);
   background-size: 32px 32px;
   background-position: 16px 16px;
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,.85), rgba(0,0,0,.45) 45%, transparent);
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,.85), rgba(0,0,0,.45) 45%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,.85), rgba(0,0,0,.35) 40%, transparent 72%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,.85), rgba(0,0,0,.35) 40%, transparent 72%);
 }
 .hero::after {
   /* soft accent glow behind the name */
@@ -439,8 +439,8 @@ img, svg { display: block; max-width: 100%; }
 }
 .job-loc { color: var(--text-subtle); }
 .bullets { display: grid; gap: var(--s-2); padding-top: var(--s-1); color: var(--text-muted); }
-.bullets li { display: grid; grid-template-columns: auto 1fr; gap: var(--s-3); }
-.bullets li::before { content: "—"; color: var(--text-subtle); }
+.bullets li { position: relative; padding-left: 28px; }
+.bullets li::before { content: "—"; position: absolute; left: 0; top: 0; color: var(--text-subtle); }
 
 /* Inline / card links */
 .inline-link { color: inherit; text-decoration-color: var(--text-subtle); text-underline-offset: 3px; }
