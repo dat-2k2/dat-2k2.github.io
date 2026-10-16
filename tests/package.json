@@ -2,6 +2,13 @@
   "name": "portfolio-tests",
   "private": true,
   "type": "commonjs",
-  "scripts": { "check": "node check.js" },
-  "devDependencies": { "axe-core": "^4.10.0", "playwright": "1.56.1" }
+  "scripts": {
+    "check": "node check.js",
+    "perf": "CHROME_PATH=${CHROME_PATH:-/opt/pw-browsers/chromium} lighthouse https://dat-2k2.github.io/ --output=html --output-path=../review/lighthouse-mobile --chrome-flags=\"--headless=new --no-sandbox\" && CHROME_PATH=${CHROME_PATH:-/opt/pw-browsers/chromium} lighthouse https://dat-2k2.github.io/ --preset=desktop --output=html --output-path=../review/lighthouse-desktop --chrome-flags=\"--headless=new --no-sandbox\""
+  },
+  "devDependencies": {
+    "axe-core": "^4.10.0",
+    "lighthouse": "^12.8.2",
+    "playwright": "1.56.1"
+  }
 }
