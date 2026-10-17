@@ -42,7 +42,7 @@
 .top-brand .app { color: var(--text-subtle); overflow: hidden; text-overflow: ellipsis; }
 .top-crumb { flex: 1; min-width: 0; display: flex; align-items: baseline; gap: var(--s-2); padding-left: var(--s-4); font: 400 13px/20px var(--font-mono); color: var(--text-subtle); white-space: nowrap; overflow: hidden; }
 .top-crumb b { font: 500 16px/24px var(--font-sans); color: var(--text); overflow: hidden; text-overflow: ellipsis; }
-.top-actions { display: flex; align-items: center; gap: var(--s-4); flex: none; }
+.top-actions { display: flex; align-items: center; gap: var(--s-4); flex: none; margin-left: auto; }
 
 /* ---- Sidebar -------------------------------------------------------- */
 .shell-side { grid-area: side; display: flex; flex-direction: column; gap: 2px; padding: var(--s-4) var(--s-3); background: var(--surface); border-right: 1px solid var(--border); overflow-y: auto; overflow-x: hidden; min-height: 0; }
@@ -86,7 +86,7 @@
 .drawer-eyebrow { display: flex; align-items: center; gap: var(--s-2); font: 500 11px/16px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--text-subtle); }
 .drawer-eyebrow .grow { flex: 1; }
 .drawer-title { margin: 0; font: 600 22px/28px var(--font-sans); letter-spacing: -.01em; overflow-wrap: anywhere; }
-.drawer-title:focus { outline: none; }
+.drawer-title:focus, .drawer-title:focus-visible { outline: none; }
 .drawer-body { flex: 1; min-height: 0; overflow: auto; padding: var(--s-6); display: flex; flex-direction: column; gap: var(--s-4); }
 .drawer-foot { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: var(--s-2); padding: 14px var(--s-6); border-top: 1px solid var(--border); background: var(--surface); }
 .drawer-grab { display: none; }
@@ -118,5 +118,8 @@
   .shell-foot { font-size: 11px; } .shell-foot .hide-s { display: none; }
   .drawer { top: auto; left: 0; right: 0; bottom: 0; width: auto; max-height: 85dvh; border-left: 0; border-top: 1px solid var(--border); border-radius: var(--r-lg) var(--r-lg) 0 0; box-shadow: 0 -12px 40px -8px rgba(17, 24, 39, .2); padding-bottom: env(safe-area-inset-bottom, 0); }
   .drawer-grab { display: block; width: 36px; height: 4px; border-radius: 2px; background: var(--border-strong); margin: 8px auto 0; }
-  @media (prefers-reduced-motion: no-preference) { @keyframes drawer-in { from { transform: translateY(24px); opacity: 0; } } }
+}
+@media (max-width: 640px) and (prefers-reduced-motion: no-preference) {
+  .drawer { animation-name: sheet-in; }
+  @keyframes sheet-in { from { transform: translateY(24px); opacity: 0; } }
 }

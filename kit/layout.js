@@ -18,13 +18,14 @@
   "use strict";
   var Kit = window.Kit = window.Kit || {};
   var FOCUSABLE = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
-  Kit.isNarrow = function () { return window.matchMedia("(max-width: 640px)").matches; };
+  function mq(q) { return window.matchMedia ? window.matchMedia(q) : { matches: false, addEventListener: function () {} }; }
+  Kit.isNarrow = function () { return mq("(max-width: 640px)").matches; };
   Kit.inertRoots = function () { return Array.prototype.slice.call(document.querySelectorAll("[data-shell]")); };
 
   /* ---------- shell sidebar ---------- */
   function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
   function wireShell(shell) {
-    var wide = window.matchMedia("(min-width: 901px)");
+    var wide = window.matchMedia ? window.matchMedia("(min-width: 901px)") : { matches: true, addEventListener: function () {} };
     if (store("kit:sidebar") === "collapsed") shell.setAttribute("data-collapsed", "");
     function sync() {
       var expanded = wide.matches ? !shell.hasAttribute("data-collapsed") : shell.hasAttribute("data-side-open");
@@ -105,6 +106,8 @@
     }
   });
 
-  function boot() { document.querySelectorAll("[data-shell]").forEach(wireShell); }
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
+  // wire shells that already exist now (script placed after the markup), and any others once the DOM is ready
+  function boot() { document.querySelectorAll("[data-shell]:not([data-shell-wired])").forEach(function (sh) { sh.setAttribute("data-shell-wired", ""); wireShell(sh); }); }
+  boot();
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
 })();
