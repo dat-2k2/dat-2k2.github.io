@@ -161,3 +161,5 @@
 .shots li { align-content: start; }
 .shot-cap { display: flex; align-items: flex-start; }
 .shot-cap .app-ic { flex: none; margin-top: 1px; vertical-align: 0; }
+.app-ic.round { border-radius: 50%; box-shadow: none; }
+.app-link { white-space: nowrap; }
