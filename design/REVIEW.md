@@ -83,7 +83,7 @@ Applied: duplicate `Console/benchmark` removed from the thesis card, metrics col
 resized, hero row-2 tiles stretched, status line "Open to new projects", time tile "Hanoi · GMT+7 /
 remote-friendly", GitHub tile "3 live demos / 18 public repos", moon icon on every toggle. Quantum: footer
 wraps on mobile, "Next mission →" in the mobile status bar, "Reset progress", "Badges · 0/6", 5 progress
-segments, "Run again" → "Reset", toggle icons. Shader: artboard 1440×1358, panel hugs content, "Hide ›",
+segments, "Run again" → "Reset" (later renamed "Re-run" on Dat's call, matching the code), toggle icons. Shader: artboard 1440×1358, panel hugs content, "Hide ›",
 280 px editor, Compile/Revert + status bar, peek and Shader-tab mobile frames. FuncProg: console detached
 with a Copy button, snippet/tabs/footer wrap on mobile, stacked mobile header, mobile H2, source panel
 stretched.
@@ -97,7 +97,7 @@ stretched.
 | Shader | Compile toolbar clipped the "● COMPILED · 12 MS" chip. | Toolbar wraps; chip drops to a second row. |
 
 Nits applied in Figma: equal-height HANOI/GITHUB tiles on mobile, green LIVE badges on /projects/,
-kit small button "Reset", moon icon in the kit nav toggle, Shader-tab underline moved to "Shader".
+kit small button "Reset" (now "Re-run"), moon icon in the kit nav toggle, Shader-tab underline moved to "Shader".
 Nits carried into code (not Figma): progress-segment contrast, 40 px tap targets, mobile progress strip under
 the Quantum hero, brand + theme toggle in the lesson bar, shortcut hints hidden on touch, locked-lesson
 descriptions hidden on narrow screens, hanging indent for wrapped code lines, code-pane scroll fade, GitHub
