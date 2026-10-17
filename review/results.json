@@ -1,7 +1,7 @@
 {
   "url": "https://dat-2k2.github.io",
-  "ranAt": "2026-10-17T01:14:10.569Z",
-  "durationMs": 62401,
+  "ranAt": "2026-10-17T01:21:56.083Z",
+  "durationMs": 72818,
   "passed": 74,
   "failed": 0,
   "results": [
@@ -179,15 +179,15 @@
     },
     {
       "ok": true,
+      "msg": "home: link https://newhub.vn: HTTP 200"
+    },
+    {
+      "ok": true,
       "msg": "home: link https://base.vn/app/wework: HTTP 200"
     },
     {
       "ok": true,
       "msg": "home: link https://base.vn/app/office: HTTP 200"
-    },
-    {
-      "ok": true,
-      "msg": "home: link https://newhub.vn: HTTP 200"
     },
     {
       "ok": true,
@@ -267,7 +267,7 @@
     },
     {
       "ok": true,
-      "msg": "theme toggle: light → dark (data-theme=dark, bg rgb(250, 250, 249) → rgb(12, 10, 9), saved=dark)"
+      "msg": "theme toggle: light → dark (data-theme=dark, bg rgb(250, 250, 249) → rgb(13, 11, 10), saved=dark)"
     },
     {
       "ok": true,
@@ -283,23 +283,23 @@
     },
     {
       "ok": true,
-      "msg": "prefers-reduced-motion: all 35 reveal sections fully visible without scrolling (0 hidden)"
+      "msg": "prefers-reduced-motion: all 28 reveal sections fully visible without scrolling (0 hidden)"
     },
     {
       "ok": true,
-      "msg": "axe-core home (light): 0 violation rule(s), 0 serious/critical, 44 rules passed"
+      "msg": "axe-core home (light): 0 violation rule(s), 0 serious/critical, 37 rules passed"
     },
     {
       "ok": true,
-      "msg": "axe-core home (dark): 0 violation rule(s), 0 serious/critical, 44 rules passed"
+      "msg": "axe-core home (dark): 0 violation rule(s), 0 serious/critical, 37 rules passed"
     },
     {
       "ok": true,
-      "msg": "axe-core projects (light): 0 violation rule(s), 0 serious/critical, 35 rules passed"
+      "msg": "axe-core projects (light): 0 violation rule(s), 0 serious/critical, 34 rules passed"
     },
     {
       "ok": true,
-      "msg": "axe-core projects (dark): 0 violation rule(s), 0 serious/critical, 35 rules passed"
+      "msg": "axe-core projects (dark): 0 violation rule(s), 0 serious/critical, 34 rules passed"
     }
   ]
 }
