@@ -105,7 +105,7 @@ async function checkLink(href, ctx) {
       log(sw <= iw, `${pageName} ${vp.name} ${scheme}: no horizontal scroll (scrollWidth ${sw} ≤ innerWidth ${iw})`);
       const applied = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
       const expectDark = scheme === "dark";
-      const isDark = /rgb\(12, 10, 9\)/.test(applied);
+      const isDark = /rgb\(11, 14, 20\)/.test(applied);
       log(isDark === expectDark, `${pageName} ${vp.name} ${scheme}: prefers-color-scheme honoured (body bg ${applied})`);
       await ctx.close();
     }

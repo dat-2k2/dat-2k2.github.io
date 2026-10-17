@@ -12,28 +12,33 @@
    ================================================================== */
 
 /* ---- 1. Tokens --------------------------------------------------- */
+/* Palette v2 (Oct 2026): cool slate neutrals + indigo accent. Orange-on-black is retired.
+   Status hues (ok / warn / bad / info) are reserved for state; --cat-* are per-service
+   group hues for app pages (CloudLab etc.) and are never used for status. */
 :root {
-  --bg: #fafaf9;
+  --bg: #f6f7f9;
   --surface: #ffffff;
-  --surface-2: #f2f1ef;
-  --border: #e4e2df;
-  --border-strong: #8f8882;
-  --border-card: #d6d3d0;
-  --text: #1c1917;
-  --text-muted: #57534e;
-  --text-subtle: #6b6560;
-  --accent: #c2410c;
+  --surface-2: #f0f2f5;
+  --border: #e3e6eb;
+  --border-strong: #9ca3af;
+  --border-card: #d5d9e0;
+  --text: #111827;
+  --text-muted: #4b5563;
+  --text-subtle: #6b7280;
+  --accent: #4f46e5;
   --on-accent: #ffffff;
-  --accent-soft: #fff1e8;
+  --accent-soft: #eef0ff;
   --ok: #15803d;      --ok-soft: #eaf6ee;
   --warn: #b45309;    --warn-soft: #fdf5e7;
   --bad: #b91c1c;     --bad-soft: #fdeeee;
-  --info: #1d4ed8;    --info-soft: #eef3fe;
-  --code-bg: #161412; --code-ink: #e6edf3; --code-muted: #8f8882;
-  --code-accent: #fb923c; --code-ok: #3ddc84; --code-info: #79b8ff; --code-border: #2a2623;
-  --glow: rgba(194, 65, 12, 0.22);
-  --dot: rgba(107, 101, 96, 0.28);
-  --shadow: 0 1px 2px rgba(28, 25, 23, 0.04), 0 12px 32px -16px rgba(28, 25, 23, 0.18);
+  --info: #0e7490;    --info-soft: #e9f6f9;
+  --cat-cost: #0f766e; --cat-notify: #be185d; --cat-security: #6d28d9; --cat-storage: #0369a1;
+  --cat-compute: #4d7c0f; --cat-monitor: #a21caf; --cat-infra: #475569; --on-cat: #ffffff;
+  --code-bg: #0f131b; --code-ink: #e6e9ef; --code-muted: #8b93a3;
+  --code-accent: #c4b5fd; --code-ok: #4ade80; --code-info: #7dd3fc; --code-border: #232a37;
+  --glow: rgba(79, 70, 229, 0.20);
+  --dot: rgba(107, 114, 128, 0.26);
+  --shadow: 0 1px 2px rgba(17, 24, 39, 0.04), 0 12px 32px -16px rgba(17, 24, 39, 0.18);
   --focus: var(--accent);
 
   --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -50,27 +55,31 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0c0a09; --surface: #161412; --surface-2: #1c1917;
-    --border: #2a2623; --border-strong: #6b6560; --border-card: #3a3532;
-    --text: #f5f5f4; --text-muted: #a8a29e; --text-subtle: #8f8882;
-    --accent: #fb923c; --on-accent: #0c0a09; --accent-soft: #2a1608;
-    --ok: #4ade80; --ok-soft: #12261a; --warn: #fbbf24; --warn-soft: #2a2112;
-    --bad: #f87171; --bad-soft: #2c1517; --info: #6ea0ff; --info-soft: #16213a;
-    --code-bg: #0c0a09;
-    --glow: rgba(251, 146, 60, 0.16); --dot: rgba(143, 136, 130, 0.28);
+    --bg: #0b0e14; --surface: #121620; --surface-2: #181d29;
+    --border: #252c3a; --border-strong: #4a5466; --border-card: #303849;
+    --text: #e6e9ef; --text-muted: #a3abb9; --text-subtle: #8b93a3;
+    --accent: #818cf8; --on-accent: #0b0e14; --accent-soft: #1d2142;
+    --ok: #4ade80; --ok-soft: #10261b; --warn: #fbbf24; --warn-soft: #2a2210;
+    --bad: #f87171; --bad-soft: #2e1519; --info: #67e8f9; --info-soft: #0d2730;
+    --cat-cost: #2dd4bf; --cat-notify: #f472b6; --cat-security: #a78bfa; --cat-storage: #38bdf8;
+    --cat-compute: #a3e635; --cat-monitor: #e879f9; --cat-infra: #94a3b8; --on-cat: #0b0e14;
+    --code-bg: #080a0f;
+    --glow: rgba(129, 140, 248, 0.16); --dot: rgba(139, 147, 163, 0.26);
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 32px -16px rgba(0, 0, 0, 0.6);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0c0a09; --surface: #161412; --surface-2: #1c1917;
-  --border: #2a2623; --border-strong: #6b6560; --border-card: #3a3532;
-  --text: #f5f5f4; --text-muted: #a8a29e; --text-subtle: #8f8882;
-  --accent: #fb923c; --on-accent: #0c0a09; --accent-soft: #2a1608;
-  --ok: #4ade80; --ok-soft: #12261a; --warn: #fbbf24; --warn-soft: #2a2112;
-  --bad: #f87171; --bad-soft: #2c1517; --info: #6ea0ff; --info-soft: #16213a;
-  --code-bg: #0c0a09;
-  --glow: rgba(251, 146, 60, 0.16); --dot: rgba(143, 136, 130, 0.28);
+  --bg: #0b0e14; --surface: #121620; --surface-2: #181d29;
+  --border: #252c3a; --border-strong: #4a5466; --border-card: #303849;
+  --text: #e6e9ef; --text-muted: #a3abb9; --text-subtle: #8b93a3;
+  --accent: #818cf8; --on-accent: #0b0e14; --accent-soft: #1d2142;
+  --ok: #4ade80; --ok-soft: #10261b; --warn: #fbbf24; --warn-soft: #2a2210;
+  --bad: #f87171; --bad-soft: #2e1519; --info: #67e8f9; --info-soft: #0d2730;
+  --cat-cost: #2dd4bf; --cat-notify: #f472b6; --cat-security: #a78bfa; --cat-storage: #38bdf8;
+  --cat-compute: #a3e635; --cat-monitor: #e879f9; --cat-infra: #94a3b8; --on-cat: #0b0e14;
+  --code-bg: #080a0f;
+  --glow: rgba(129, 140, 248, 0.16); --dot: rgba(139, 147, 163, 0.26);
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 32px -16px rgba(0, 0, 0, 0.6);
   color-scheme: dark;
 }
