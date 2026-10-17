@@ -149,3 +149,15 @@
 .pcard-links a { color: var(--text); text-decoration: none; display: inline-flex; align-items: center; min-height: 40px; }
 .pcard-links a.demo { color: var(--accent); }
 .pcard-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* Product logos — always on a white plate so brand colours read in light and dark */
+.logo-plate { display: inline-flex; align-items: center; background: #ffffff; border-radius: var(--r-sm); padding: 6px 10px; box-shadow: inset 0 0 0 1px rgba(17, 24, 39, 0.08); line-height: 0; }
+.logo-plate img { display: block; height: 22px; width: auto; }
+.tile-head { display: flex; align-items: center; gap: var(--s-3); flex-wrap: wrap; }
+.h-logo { margin: 0; line-height: 0; }
+.h-logo .logo-plate img { height: 28px; }
+/* App icons (square, own background) next to product names */
+.app-ic { display: inline-block; width: 18px; height: 18px; border-radius: 5px; vertical-align: -4px; margin-right: 6px; box-shadow: 0 0 0 1px rgba(17, 24, 39, 0.08); }
+.shots li { align-content: start; }
+.shot-cap { display: flex; align-items: flex-start; }
+.shot-cap .app-ic { flex: none; margin-top: 1px; vertical-align: 0; }
