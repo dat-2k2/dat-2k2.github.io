@@ -9,6 +9,7 @@
   <meta name="color-scheme" content="light dark">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="kit.css">
+  <link rel="stylesheet" href="layout.css">
   <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
   <style>
     .kit-section { padding-block: var(--s-12); border-top: 1px solid var(--border); display: grid; gap: var(--s-6); }
@@ -156,6 +157,54 @@
         <div class="code"><pre><span class="ln">hilbert :: Int -&gt; [[Int]]</span><span class="ln">hilbert 0 = []</span><span class="ln hot">hilbert 1 = [[0,0],[0,1],[1,1],[1,0]]</span><span class="ln">hilbert n = rev (rotr (power2 (n-1)) ...</span></pre></div>
       </div>
     </section>
+    <section class="kit-section" id="layout">
+      <p class="label">Layout · modal · drawer</p>
+      <p class="mono subtle">&lt;link rel="stylesheet" href="https://dat-2k2.github.io/kit/layout.css"&gt; · &lt;script src="https://dat-2k2.github.io/kit/layout.js" defer&gt;&lt;/script&gt;</p>
+      <div class="shell" data-shell style="height:360px;border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;position:relative;transform:translateZ(0)">
+        <header class="shell-top">
+          <button class="icon-btn" data-shell-toggle aria-controls="demo-side" aria-label="Toggle sidebar">☰</button>
+          <a class="top-brand" href="#layout"><span class="mark">D</span><span>Nguyen Quoc Dat</span><span class="app">/ App</span></a>
+          <p class="top-crumb">Storage / <b>S3 buckets</b></p>
+        </header>
+        <nav class="shell-side" id="demo-side" aria-label="Demo sidebar">
+          <p class="side-group">Cost</p>
+          <a class="side-item" href="#layout" style="--cat:var(--cat-cost);--on-cat:#fff"><span class="side-ic">$</span><span class="side-label">Budgets</span></a>
+          <p class="side-group">Storage</p>
+          <a class="side-item" href="#layout" aria-current="page" style="--cat:var(--cat-storage);--on-cat:#fff"><span class="side-ic">S3</span><span class="side-label">S3 buckets</span></a>
+          <span class="side-item" aria-disabled="true"><span class="side-ic">CDK</span><span class="side-label">Stack</span></span>
+          <button class="side-collapse" data-shell-toggle aria-controls="demo-side"><span aria-hidden="true">«</span><span class="side-label">Collapse</span></button>
+        </nav>
+        <main class="shell-main" style="padding:var(--s-6);display:flex;gap:var(--s-3);flex-wrap:wrap;align-content:start">
+          <button class="btn btn-primary btn-sm" id="demo-modal-open">Open modal</button>
+          <button class="btn btn-secondary btn-sm" id="demo-drawer-open" aria-controls="demo-drawer" aria-expanded="false">Open drawer</button>
+        </main>
+        <footer class="shell-foot"><span>Part of dat-2k2.github.io</span><span class="hide-s">env · region</span></footer>
+      </div>
+      <div class="scrim" id="demo-scrim" hidden>
+        <div class="modal" id="demo-modal" aria-labelledby="demo-modal-t">
+          <div class="modal-head"><h3 id="demo-modal-t">Delete bucket?</h3><button class="modal-x" data-close aria-label="Close">✕</button></div>
+          <p class="small muted" style="margin:0">Every object in the bucket is deleted. This can't be undone.</p>
+          <div class="modal-foot"><button class="btn btn-ghost btn-sm" data-close>Cancel</button><button class="btn btn-bad btn-sm" data-close>Delete</button></div>
+        </div>
+      </div>
+      <aside class="drawer" id="demo-drawer" aria-labelledby="demo-drawer-t" hidden>
+        <div class="drawer-grab" aria-hidden="true"></div>
+        <div class="drawer-head"><div class="drawer-eyebrow"><span class="side-ic" style="--cat:var(--cat-compute);--on-cat:#fff">λ</span><span class="grow">Lambda · function</span><button class="modal-x" data-close aria-label="Close">✕</button></div><h3 class="drawer-title" id="demo-drawer-t" tabindex="-1">extract</h3></div>
+        <div class="drawer-body"><dl class="kv-list"><div><dt>Memory</dt><dd>256 MB</dd></div><div><dt>Timeout</dt><dd>10 s</dd></div><div><dt>Role</dt><dd>extract-role</dd></div></dl></div>
+        <div class="drawer-foot"><button class="btn btn-secondary btn-sm" data-close>Close</button><button class="btn btn-primary btn-sm">Test</button></div>
+      </aside>
+      <script>
+        (function () {
+          var scrim = document.getElementById("demo-scrim"), modal = document.getElementById("demo-modal"), drawer = document.getElementById("demo-drawer"), dBtn = document.getElementById("demo-drawer-open");
+          function closeModal() { scrim.hidden = true; Kit.layer.close(modal); }
+          function closeDrawer() { drawer.hidden = true; dBtn.setAttribute("aria-expanded", "false"); Kit.layer.close(drawer); }
+          document.getElementById("demo-modal-open").addEventListener("click", function () { scrim.hidden = false; Kit.layer.open(modal, { modal: true, onClose: closeModal }); });
+          dBtn.addEventListener("click", function () { drawer.hidden = false; dBtn.setAttribute("aria-expanded", "true"); Kit.layer.open(drawer, { modal: Kit.isNarrow(), onClose: closeDrawer, initialFocus: "#demo-drawer-t" }); });
+          scrim.addEventListener("click", function (e) { if (e.target === scrim || e.target.closest("[data-close]")) closeModal(); });
+          drawer.addEventListener("click", function (e) { if (e.target.closest("[data-close]")) closeDrawer(); });
+        })();
+      </script>
+    </section>
   </main>
 
   <footer class="wrap site-footer">
@@ -163,5 +212,6 @@
     <p class="mono subtle">Figma: UI Kit page · <a href="../">← Back to home</a></p>
   </footer>
   <script src="kit.js" defer></script>
+  <script src="layout.js"></script>
 </body>
 </html>
