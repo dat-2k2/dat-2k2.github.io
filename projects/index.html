@@ -30,6 +30,7 @@
 
   <link rel="preload" href="../fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../kit/kit.css">
   <link rel="stylesheet" href="../styles.css">
 
   <script>
@@ -66,44 +67,44 @@
 
   <main id="main" class="wrap">
     <header class="page-head">
-      <p class="label" style="color: var(--accent)">Projects · 3 live demos</p>
+      <p class="label accent">Projects · 3 live demos</p>
       <h1 class="h2">Everything I’ve built in public.</h1>
       <p class="lead muted page-lead">Interactive demos that run in the browser — open them, play with them, read the source.</p>
     </header>
 
     <section class="catalog" aria-label="Projects">
-      <article class="pcard" id="quantum-labs">
+      <article class="card card-hover pcard" id="quantum-labs">
         <a class="pcard-tile" href="https://dat-2k2.github.io/quantum-labs/" target="_blank" rel="noopener" aria-label="Open the Quantum Labs demo (new tab)">
           <img src="../assets/work/quantum-labs-site.webp" width="1200" height="750" alt="Quantum Labs site: hero with a Bloch sphere and the list of interactive labs" loading="lazy" decoding="async">
         </a>
         <div class="pcard-body">
-          <h2 class="h3">Quantum Labs <span class="live-pill label"><span class="live-dot" aria-hidden="true"></span>Live</span></h2>
+          <h2 class="h3">Quantum Labs <span class="badge badge-ok"><span class="dot" aria-hidden="true"></span>Live</span></h2>
           <p class="small muted">Eleven quantum algorithms from coursework — QRNG, Deutsch–Jozsa, Grover, Simon, QFT, phase estimation, teleportation, BB84, Shor, 9-qubit error correction — rebuilt as interactive circuits with an in-browser simulator.</p>
-          <ul class="tags" aria-label="Stack"><li class="tag mono">Python</li><li class="tag mono">Qiskit</li><li class="tag mono">JavaScript</li></ul>
+          <ul class="tags" aria-label="Stack"><li class="tag">Python</li><li class="tag">Qiskit</li><li class="tag">JavaScript</li></ul>
           <p class="pcard-links"><a class="ext demo" href="https://dat-2k2.github.io/quantum-labs/" target="_blank" rel="noopener">Open demo</a><a class="ext" href="https://github.com/dat-2k2/quantum-labs" target="_blank" rel="noopener">Code</a></p>
         </div>
       </article>
 
-      <article class="pcard" id="shader-testbed">
+      <article class="card card-hover pcard" id="shader-testbed">
         <a class="pcard-tile" href="https://dat-2k2.github.io/shader-sandbox/" target="_blank" rel="noopener" aria-label="Open the Shader Testbed demo (new tab)">
           <img src="../assets/work/shader-sandbox-site.webp" width="1200" height="750" alt="Shader Testbed demo: red raymarched spheres with a control panel and GLSL editor" loading="lazy" decoding="async">
         </a>
         <div class="pcard-body">
-          <h2 class="h3">Shader Testbed <span class="live-pill label"><span class="live-dot" aria-hidden="true"></span>Live</span></h2>
+          <h2 class="h3">Shader Testbed <span class="badge badge-ok"><span class="dot" aria-hidden="true"></span>Live</span></h2>
           <p class="small muted">Raymarched spheres shaded with the Unreal Engine 4 microfacet model; live GLSL editor with material and light controls. Desktop Java/LWJGL version in the same repo.</p>
-          <ul class="tags" aria-label="Stack"><li class="tag mono">GLSL</li><li class="tag mono">WebGL</li><li class="tag mono">Java</li><li class="tag mono">LWJGL</li></ul>
+          <ul class="tags" aria-label="Stack"><li class="tag">GLSL</li><li class="tag">WebGL</li><li class="tag">Java</li><li class="tag">LWJGL</li></ul>
           <p class="pcard-links"><a class="ext demo" href="https://dat-2k2.github.io/shader-sandbox/" target="_blank" rel="noopener">Open demo</a><a class="ext" href="https://github.com/dat-2k2/shader-sandbox" target="_blank" rel="noopener">Code</a></p>
         </div>
       </article>
       <p class="catalog-empty small muted" hidden>No projects in this category yet.</p>
-      <article class="pcard" id="funcprog">
+      <article class="card card-hover pcard" id="funcprog">
         <a class="pcard-tile" href="https://dat-2k2.github.io/FuncProg/" target="_blank" rel="noopener" aria-label="Open the FuncProg demo (new tab)">
           <img src="../assets/work/funcprog-site.webp" width="1200" height="750" alt="FuncProg site: functional programming assignments running in the browser" loading="lazy" decoding="async">
         </a>
         <div class="pcard-body">
-          <h2 class="h3">FuncProg <span class="live-pill label"><span class="live-dot" aria-hidden="true"></span>Live</span></h2>
+          <h2 class="h3">FuncProg <span class="badge badge-ok"><span class="dot" aria-hidden="true"></span>Live</span></h2>
           <p class="small muted">Functional programming coursework in Haskell — fractals, the rookie problem and a trust-game simulation — ported to JavaScript and runnable in the browser, with tests that check the JS ports against the Haskell originals.</p>
-          <ul class="tags" aria-label="Stack"><li class="tag mono">Haskell</li><li class="tag mono">JavaScript</li><li class="tag mono">GitHub Pages</li></ul>
+          <ul class="tags" aria-label="Stack"><li class="tag">Haskell</li><li class="tag">JavaScript</li><li class="tag">GitHub Pages</li></ul>
           <p class="pcard-links"><a class="ext demo" href="https://dat-2k2.github.io/FuncProg/" target="_blank" rel="noopener">Open demo</a><a class="ext" href="https://github.com/dat-2k2/FuncProg" target="_blank" rel="noopener">Code</a></p>
         </div>
       </article>
@@ -115,6 +116,6 @@
     <p class="mono subtle"><a href="../">← Back to home</a></p>
   </footer>
 
-  <script src="../script.js" defer></script>
+  <script src="../kit/kit.js" defer></script>
 </body>
 </html>

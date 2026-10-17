@@ -31,6 +31,7 @@
 
   <link rel="preload" href="fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="kit/kit.css">
   <link rel="stylesheet" href="styles.css">
 
   <script>
@@ -88,28 +89,37 @@
 
   <main id="main">
     <section class="hero" id="top" aria-labelledby="name">
-      <div class="wrap hero-inner">
-        <p class="eyebrow label">
-          <span class="badge"><span class="badge-dot" aria-hidden="true"></span>Open to new projects</span>
-          <span class="role">Full-stack &amp; AI engineer</span>
-          <span aria-hidden="true">·</span>
-          <span>Hanoi (GMT+7)</span>
-          <span aria-hidden="true">·</span>
-          <span>Remote-friendly</span>
-        </p>
-        <h1 class="display" id="name">Nguyen Quoc Dat</h1>
-        <p class="lead pitch">I build LLM-powered web and mobile products for teams that need them shipped — research, architecture and delivery, end-to-end.</p>
-        <p class="cta-row">
-          <a class="btn btn-primary" href="mailto:work.dat2002@gmail.com?subject=Project%20inquiry">Hire me</a>
-          <a class="btn btn-secondary ext" href="https://github.com/dat-2k2" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn btn-secondary ext" href="https://www.linkedin.com/in/dat2002" target="_blank" rel="noopener">LinkedIn</a>
-        </p>
-        <dl class="key-facts">
-          <div class="fact"><dt class="label">Now</dt><dd><p>Software Engineer at PropGate</p></dd></div>
-          <div class="fact"><dt class="label">Shipped</dt><dd><p>NewHub — LLM posts in under 30s</p></dd></div>
-          <div class="fact"><dt class="label">Thesis</dt><dd><p>CUDA image filter, 1.3× faster than OpenCV</p></dd></div>
-          <div class="fact"><dt class="label">Scale</dt><dd><p>~21k DAU product maintained at Base.vn</p></dd></div>
-        </dl>
+      <div class="wrap bento rise">
+        <div class="bento-top">
+          <div class="tile t-name">
+            <p class="status-line label"><span class="live-dot pulse" aria-hidden="true"></span>Open to new projects</p>
+            <div>
+              <h1 class="display" id="name">Nguyen<br>Quoc Dat</h1>
+              <p class="lead muted pitch" style="margin-top: var(--s-4)">Full-stack &amp; AI engineer. I build LLM-powered web and mobile products for teams that need them shipped — research, architecture and delivery, end‑to‑end.</p>
+            </div>
+            <p class="cta-row">
+              <a class="btn btn-primary" href="mailto:work.dat2002@gmail.com?subject=Project%20inquiry">Hire me</a>
+              <a class="btn btn-secondary ext" href="https://github.com/dat-2k2" target="_blank" rel="noopener">GitHub</a>
+              <a class="btn btn-secondary ext" href="https://www.linkedin.com/in/dat2002" target="_blank" rel="noopener">LinkedIn</a>
+            </p>
+          </div>
+          <div class="bento-right">
+            <a class="tile tile-accent t-newhub" href="https://newhub.vn" target="_blank" rel="noopener" style="text-decoration:none">
+              <p class="label">NewHub · PropGate · live at newhub.vn ↗</p>
+              <div class="metric-block"><p class="metric-big" data-count>&lt;30s</p><p class="small">for the LLM assistant I shipped to generate a real-estate marketing post</p></div>
+            </a>
+            <div class="bento-pair">
+              <div class="tile t-scale"><p class="label">Base.vn</p><div class="metric-block"><p class="metric" data-count>~21k</p><p>daily active users on the product suite I maintained</p></div></div>
+              <div class="tile t-thesis"><p class="label">CUDA thesis</p><div class="metric-block"><p class="metric" data-count>1.3×</p><p>faster than OpenCV’s median filter</p></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="bento-bottom">
+          <div class="tile t-now"><p class="label">Now</p><p>Software Engineer at PropGate — shipping LLM features on Next.js, Expo and Supabase, deployed on Vercel, GCP and AWS.</p></div>
+          <div class="tile t-stack"><p class="label">Stack</p><ul class="tags" aria-label="Core stack"><li class="tag">TypeScript</li><li class="tag">Next.js</li><li class="tag">React Native</li><li class="tag">Supabase</li><li class="tag">Vertex AI</li><li class="tag">PostgreSQL</li><li class="tag">CUDA</li><li class="tag">Claude Code</li></ul></div>
+          <div class="tile tile-soft t-time"><p class="label">Hanoi</p><div><p class="clock" id="clock" aria-live="off">--:--</p><p class="small muted">Hanoi · GMT+7<br>remote-friendly</p></div></div>
+          <div class="tile t-github"><p class="label">GitHub</p><div><p><a class="ext" href="https://github.com/dat-2k2" target="_blank" rel="noopener">@dat-2k2</a></p><p class="mono muted">3 live demos<br>18 public repos</p></div></div>
+        </div>
       </div>
     </section>
 
@@ -119,9 +129,9 @@
           <p class="label">01</p>
           <h2 class="h2" id="about-h">About</h2>
         </div>
-        <div class="section-body">
-          <p class="lead">Full-stack engineer (1+ year in production) shipping LLM-powered web and mobile products end-to-end with AI-assisted development. Math Olympiad prize winner, comfortable owning research, architecture and delivery.</p>
-          <div class="about-grid">
+        <div data-reveal class="section-body">
+          <p class="lead">Full-stack engineer (1+ year in production) shipping LLM-powered web and mobile products end‑to‑end with AI-assisted development. Math Olympiad prize winner, comfortable owning research, architecture and delivery.</p>
+          <div class="about-grid" data-reveal>
             <div>
               <p class="label">LLM products</p>
               <p>Vertex AI assistants, prompt engineering and generative content, integrated into real product flows.</p>
@@ -143,7 +153,7 @@
           <p class="label">02</p>
           <h2 class="h2" id="experience-h">Experience</h2>
         </div>
-        <ol class="section-body timeline">
+        <ol data-reveal class="section-body timeline">
           <li class="job is-current">
             <p class="job-date mono"><time datetime="2026-04">Apr 2026</time> — Present</p>
             <div class="rail" aria-hidden="true"><span class="rail-dot"></span></div>
@@ -151,7 +161,7 @@
               <p class="job-date-inline mono"><time datetime="2026-04">Apr 2026</time> — Present</p>
               <div class="job-title">
                 <h3 class="h3">Software Engineer · PropGate</h3>
-                <span class="pill-current label">Current</span>
+                <span class="badge badge-accent">Current</span>
               </div>
               <p class="job-loc label">Hanoi, Vietnam</p>
               <ul class="bullets">
@@ -203,38 +213,42 @@
           <p class="label">03</p>
           <h2 class="h2" id="projects-h">Projects</h2>
         </div>
-        <div class="section-body">
-          <div class="projects">
-            <article class="card">
+        <div data-reveal class="section-body">
+          <div class="projects" data-reveal>
+            <article class="card card-hover project">
               <div class="card-content">
                 <p class="label">PropGate · 2026</p>
                 <h3>NewHub</h3>
-                <p>LLM assistant built on Vertex AI that generates real-estate marketing posts. Shipped end-to-end across web and mobile.</p>
+                <p>LLM assistant built on Vertex AI that generates real-estate marketing posts. Shipped end‑to‑end across web and mobile.</p>
                 <p class="card-links"><a class="ext" href="https://newhub.vn" target="_blank" rel="noopener">Live at newhub.vn</a></p>
                 <ul class="tags" aria-label="Tech stack">
-                  <li class="tag mono">Vertex AI</li><li class="tag mono">Next.js</li><li class="tag mono">React Native</li><li class="tag mono">Expo</li><li class="tag mono">Supabase</li><li class="tag mono">Upstash QStash</li>
+                  <li class="tag">Vertex AI</li><li class="tag">Next.js</li><li class="tag">React Native</li><li class="tag">Expo</li><li class="tag">Supabase</li><li class="tag">Upstash QStash</li>
                 </ul>
               </div>
               <div class="card-side">
                 <a class="shot" href="https://newhub.vn" target="_blank" rel="noopener" aria-label="newhub.vn home page (opens in a new tab)"><img src="assets/work/newhub-ui.webp" width="1200" height="750" alt="NewHub mobile app welcome screen, with its features: posts, video, microsite and listings" loading="lazy" decoding="async"></a>
-                <div class="metric-block"><p class="metric">&lt;30s</p><p class="small">to generate a marketing post</p></div>
-                <div class="metric-block"><p class="metric">2×</p><p class="small">faster mobile delivery with the Expo + Lark CI/CD pipeline I built</p></div>
+                <div class="metric-block"><p class="metric" data-count>&lt;30s</p><p class="small">to generate a marketing post</p></div>
+                <div class="metric-block"><p class="metric" data-count>2×</p><p class="small">faster mobile delivery with the Expo + Lark CI/CD pipeline I built</p></div>
               </div>
             </article>
 
-            <article class="card">
+            <article class="card card-hover project">
               <div class="card-content">
                 <p class="label">Bachelor thesis · Apr–Jun 2025</p>
                 <h3>Selective Median Image Filter</h3>
                 <p>A rule-based noise-filtering algorithm using cellular automata, optimized with batch processing and reduced redundant memory access.</p>
                 <ul class="tags" aria-label="Tech stack">
-                  <li class="tag mono">C++</li><li class="tag mono">CUDA</li>
+                  <li class="tag">C++</li><li class="tag">CUDA</li>
                 </ul>
               </div>
               <div class="card-side">
-                <svg class="filter-vis" viewBox="0 0 244 100" width="244" height="100" role="img" aria-labelledby="fv-title"><title id="fv-title">A noisy 10 by 10 pixel grid on the left becomes a clean one on the right</title><rect x="0" y="0" width="9" height="9" opacity="0.37"/><rect x="10" y="0" width="9" height="9" opacity="0.53"/><rect x="20" y="0" width="9" height="9" opacity="0.62"/><rect x="30" y="0" width="9" height="9" class="n"/><rect x="40" y="0" width="9" height="9" opacity="0.45"/><rect x="50" y="0" width="9" height="9" opacity="0.28"/><rect x="60" y="0" width="9" height="9" class="n"/><rect x="70" y="0" width="9" height="9" opacity="0.12"/><rect x="80" y="0" width="9" height="9" class="n"/><rect x="90" y="0" width="9" height="9" opacity="0.37"/><rect x="0" y="10" width="9" height="9" class="n"/><rect x="10" y="10" width="9" height="9" class="n"/><rect x="20" y="10" width="9" height="9" opacity="0.61"/><rect x="30" y="10" width="9" height="9" opacity="0.50"/><rect x="40" y="10" width="9" height="9" opacity="0.33"/><rect x="50" y="10" width="9" height="9" opacity="0.18"/><rect x="60" y="10" width="9" height="9" opacity="0.12"/><rect x="70" y="10" width="9" height="9" opacity="0.18"/><rect x="80" y="10" width="9" height="9" opacity="0.32"/><rect x="90" y="10" width="9" height="9" opacity="0.49"/><rect x="0" y="20" width="9" height="9" opacity="0.58"/><rect x="10" y="20" width="9" height="9" class="n"/><rect x="20" y="20" width="9" height="9" opacity="0.54"/><rect x="30" y="20" width="9" height="9" opacity="0.38"/><rect x="40" y="20" width="9" height="9" opacity="0.22"/><rect x="50" y="20" width="9" height="9" opacity="0.13"/><rect x="60" y="20" width="9" height="9" opacity="0.15"/><rect x="70" y="20" width="9" height="9" opacity="0.28"/><rect x="80" y="20" width="9" height="9" opacity="0.45"/><rect x="90" y="20" width="9" height="9" opacity="0.58"/><rect x="0" y="30" width="9" height="9" opacity="0.62"/><rect x="10" y="30" width="9" height="9" opacity="0.57"/><rect x="20" y="30" width="9" height="9" opacity="0.43"/><rect x="30" y="30" width="9" height="9" class="n"/><rect x="40" y="30" width="9" height="9" class="n"/><rect x="50" y="30" width="9" height="9" opacity="0.13"/><rect x="60" y="30" width="9" height="9" opacity="0.23"/><rect x="70" y="30" width="9" height="9" opacity="0.40"/><rect x="80" y="30" width="9" height="9" opacity="0.55"/><rect x="90" y="30" width="9" height="9" opacity="0.62"/><rect x="0" y="40" width="9" height="9" opacity="0.60"/><rect x="10" y="40" width="9" height="9" opacity="0.48"/><rect x="20" y="40" width="9" height="9" opacity="0.31"/><rect x="30" y="40" width="9" height="9" opacity="0.17"/><rect x="40" y="40" width="9" height="9" opacity="0.12"/><rect x="50" y="40" width="9" height="9" opacity="0.19"/><rect x="60" y="40" width="9" height="9" opacity="0.35"/><rect x="70" y="40" width="9" height="9" opacity="0.51"/><rect x="80" y="40" width="9" height="9" opacity="0.61"/><rect x="90" y="40" width="9" height="9" opacity="0.60"/><rect x="0" y="50" width="9" height="9" opacity="0.52"/><rect x="10" y="50" width="9" height="9" opacity="0.36"/><rect x="20" y="50" width="9" height="9" opacity="0.20"/><rect x="30" y="50" width="9" height="9" opacity="0.12"/><rect x="40" y="50" width="9" height="9" opacity="0.16"/><rect x="50" y="50" width="9" height="9" opacity="0.30"/><rect x="60" y="50" width="9" height="9" class="n"/><rect x="70" y="50" width="9" height="9" opacity="0.59"/><rect x="80" y="50" width="9" height="9" opacity="0.61"/><rect x="90" y="50" width="9" height="9" opacity="0.52"/><rect x="0" y="60" width="9" height="9" opacity="0.41"/><rect x="10" y="60" width="9" height="9" opacity="0.24"/><rect x="20" y="60" width="9" height="9" opacity="0.13"/><rect x="30" y="60" width="9" height="9" opacity="0.14"/><rect x="40" y="60" width="9" height="9" opacity="0.25"/><rect x="50" y="60" width="9" height="9" opacity="0.42"/><rect x="60" y="60" width="9" height="9" opacity="0.57"/><rect x="70" y="60" width="9" height="9" opacity="0.62"/><rect x="80" y="60" width="9" height="9" opacity="0.55"/><rect x="90" y="60" width="9" height="9" opacity="0.40"/><rect x="0" y="70" width="9" height="9" class="n"/><rect x="10" y="70" width="9" height="9" opacity="0.15"/><rect x="20" y="70" width="9" height="9" opacity="0.12"/><rect x="30" y="70" width="9" height="9" opacity="0.21"/><rect x="40" y="70" width="9" height="9" opacity="0.37"/><rect x="50" y="70" width="9" height="9" opacity="0.53"/><rect x="60" y="70" width="9" height="9" opacity="0.62"/><rect x="70" y="70" width="9" height="9" opacity="0.58"/><rect x="80" y="70" width="9" height="9" class="n"/><rect x="90" y="70" width="9" height="9" opacity="0.28"/><rect x="0" y="80" width="9" height="9" opacity="0.18"/><rect x="10" y="80" width="9" height="9" opacity="0.12"/><rect x="20" y="80" width="9" height="9" class="n"/><rect x="30" y="80" width="9" height="9" opacity="0.32"/><rect x="40" y="80" width="9" height="9" opacity="0.49"/><rect x="50" y="80" width="9" height="9" opacity="0.60"/><rect x="60" y="80" width="9" height="9" opacity="0.61"/><rect x="70" y="80" width="9" height="9" opacity="0.50"/><rect x="80" y="80" width="9" height="9" class="n"/><rect x="90" y="80" width="9" height="9" opacity="0.18"/><rect x="0" y="90" width="9" height="9" opacity="0.13"/><rect x="10" y="90" width="9" height="9" opacity="0.15"/><rect x="20" y="90" width="9" height="9" opacity="0.28"/><rect x="30" y="90" width="9" height="9" opacity="0.45"/><rect x="40" y="90" width="9" height="9" opacity="0.58"/><rect x="50" y="90" width="9" height="9" opacity="0.62"/><rect x="60" y="90" width="9" height="9" opacity="0.54"/><rect x="70" y="90" width="9" height="9" opacity="0.38"/><rect x="80" y="90" width="9" height="9" opacity="0.21"/><rect x="90" y="90" width="9" height="9" opacity="0.12"/><rect x="144" y="0" width="9" height="9" opacity="0.37"/><rect x="154" y="0" width="9" height="9" opacity="0.53"/><rect x="164" y="0" width="9" height="9" opacity="0.62"/><rect x="174" y="0" width="9" height="9" opacity="0.59"/><rect x="184" y="0" width="9" height="9" opacity="0.45"/><rect x="194" y="0" width="9" height="9" opacity="0.28"/><rect x="204" y="0" width="9" height="9" opacity="0.15"/><rect x="214" y="0" width="9" height="9" opacity="0.12"/><rect x="224" y="0" width="9" height="9" opacity="0.21"/><rect x="234" y="0" width="9" height="9" opacity="0.37"/><rect x="144" y="10" width="9" height="9" opacity="0.49"/><rect x="154" y="10" width="9" height="9" opacity="0.60"/><rect x="164" y="10" width="9" height="9" opacity="0.61"/><rect x="174" y="10" width="9" height="9" opacity="0.50"/><rect x="184" y="10" width="9" height="9" opacity="0.33"/><rect x="194" y="10" width="9" height="9" opacity="0.18"/><rect x="204" y="10" width="9" height="9" opacity="0.12"/><rect x="214" y="10" width="9" height="9" opacity="0.18"/><rect x="224" y="10" width="9" height="9" opacity="0.32"/><rect x="234" y="10" width="9" height="9" opacity="0.49"/><rect x="144" y="20" width="9" height="9" opacity="0.58"/><rect x="154" y="20" width="9" height="9" opacity="0.62"/><rect x="164" y="20" width="9" height="9" opacity="0.54"/><rect x="174" y="20" width="9" height="9" opacity="0.38"/><rect x="184" y="20" width="9" height="9" opacity="0.22"/><rect x="194" y="20" width="9" height="9" opacity="0.13"/><rect x="204" y="20" width="9" height="9" opacity="0.15"/><rect x="214" y="20" width="9" height="9" opacity="0.28"/><rect x="224" y="20" width="9" height="9" opacity="0.45"/><rect x="234" y="20" width="9" height="9" opacity="0.58"/><rect x="144" y="30" width="9" height="9" opacity="0.62"/><rect x="154" y="30" width="9" height="9" opacity="0.57"/><rect x="164" y="30" width="9" height="9" opacity="0.43"/><rect x="174" y="30" width="9" height="9" opacity="0.26"/><rect x="184" y="30" width="9" height="9" opacity="0.14"/><rect x="194" y="30" width="9" height="9" opacity="0.13"/><rect x="204" y="30" width="9" height="9" opacity="0.23"/><rect x="214" y="30" width="9" height="9" opacity="0.40"/><rect x="224" y="30" width="9" height="9" opacity="0.55"/><rect x="234" y="30" width="9" height="9" opacity="0.62"/><rect x="144" y="40" width="9" height="9" opacity="0.60"/><rect x="154" y="40" width="9" height="9" opacity="0.48"/><rect x="164" y="40" width="9" height="9" opacity="0.31"/><rect x="174" y="40" width="9" height="9" opacity="0.17"/><rect x="184" y="40" width="9" height="9" opacity="0.12"/><rect x="194" y="40" width="9" height="9" opacity="0.19"/><rect x="204" y="40" width="9" height="9" opacity="0.35"/><rect x="214" y="40" width="9" height="9" opacity="0.51"/><rect x="224" y="40" width="9" height="9" opacity="0.61"/><rect x="234" y="40" width="9" height="9" opacity="0.60"/><rect x="144" y="50" width="9" height="9" opacity="0.52"/><rect x="154" y="50" width="9" height="9" opacity="0.36"/><rect x="164" y="50" width="9" height="9" opacity="0.20"/><rect x="174" y="50" width="9" height="9" opacity="0.12"/><rect x="184" y="50" width="9" height="9" opacity="0.16"/><rect x="194" y="50" width="9" height="9" opacity="0.30"/><rect x="204" y="50" width="9" height="9" opacity="0.47"/><rect x="214" y="50" width="9" height="9" opacity="0.59"/><rect x="224" y="50" width="9" height="9" opacity="0.61"/><rect x="234" y="50" width="9" height="9" opacity="0.52"/><rect x="144" y="60" width="9" height="9" opacity="0.41"/><rect x="154" y="60" width="9" height="9" opacity="0.24"/><rect x="164" y="60" width="9" height="9" opacity="0.13"/><rect x="174" y="60" width="9" height="9" opacity="0.14"/><rect x="184" y="60" width="9" height="9" opacity="0.25"/><rect x="194" y="60" width="9" height="9" opacity="0.42"/><rect x="204" y="60" width="9" height="9" opacity="0.57"/><rect x="214" y="60" width="9" height="9" opacity="0.62"/><rect x="224" y="60" width="9" height="9" opacity="0.55"/><rect x="234" y="60" width="9" height="9" opacity="0.40"/><rect x="144" y="70" width="9" height="9" opacity="0.28"/><rect x="154" y="70" width="9" height="9" opacity="0.15"/><rect x="164" y="70" width="9" height="9" opacity="0.12"/><rect x="174" y="70" width="9" height="9" opacity="0.21"/><rect x="184" y="70" width="9" height="9" opacity="0.37"/><rect x="194" y="70" width="9" height="9" opacity="0.53"/><rect x="204" y="70" width="9" height="9" opacity="0.62"/><rect x="214" y="70" width="9" height="9" opacity="0.58"/><rect x="224" y="70" width="9" height="9" opacity="0.45"/><rect x="234" y="70" width="9" height="9" opacity="0.28"/><rect x="144" y="80" width="9" height="9" opacity="0.18"/><rect x="154" y="80" width="9" height="9" opacity="0.12"/><rect x="164" y="80" width="9" height="9" opacity="0.18"/><rect x="174" y="80" width="9" height="9" opacity="0.32"/><rect x="184" y="80" width="9" height="9" opacity="0.49"/><rect x="194" y="80" width="9" height="9" opacity="0.60"/><rect x="204" y="80" width="9" height="9" opacity="0.61"/><rect x="214" y="80" width="9" height="9" opacity="0.50"/><rect x="224" y="80" width="9" height="9" opacity="0.33"/><rect x="234" y="80" width="9" height="9" opacity="0.18"/><rect x="144" y="90" width="9" height="9" opacity="0.13"/><rect x="154" y="90" width="9" height="9" opacity="0.15"/><rect x="164" y="90" width="9" height="9" opacity="0.28"/><rect x="174" y="90" width="9" height="9" opacity="0.45"/><rect x="184" y="90" width="9" height="9" opacity="0.58"/><rect x="194" y="90" width="9" height="9" opacity="0.62"/><rect x="204" y="90" width="9" height="9" opacity="0.54"/><rect x="214" y="90" width="9" height="9" opacity="0.38"/><rect x="224" y="90" width="9" height="9" opacity="0.21"/><rect x="234" y="90" width="9" height="9" opacity="0.12"/><path class="a" d="M108 50.0 H136 M130 44.0 L136 50.0 L130 56.0"/></svg>
-                <div class="metric-block"><p class="metric">1.3×</p><p class="small">faster than OpenCV’s median filter</p></div>
-                <div class="metric-block"><p class="metric">10×</p><p class="small">speedup over the CPU approach, on one host instead of a CPU cluster</p></div>
+                <div class="console" aria-label="Benchmark summary"><div class="console-bar"><span>bench</span></div><div class="console-body"><span class="p">$ </span>bench --cuda
+<span class="m">CA median</span> <span class="p">ok</span>
+<span class="m">vs OpenCV</span>   <span class="a">1.3× faster</span>
+<span class="m">vs CPU</span>      <span class="a">10× faster</span>
+<span class="m">host: </span><span class="i">1 GPU node</span></div></div>
+                <div class="metric-block"><p class="metric" data-count>1.3×</p><p class="small">faster than OpenCV’s median filter</p></div>
+                <div class="metric-block"><p class="metric" data-count>10×</p><p class="small">speedup over the CPU approach, on one host instead of a CPU cluster</p></div>
               </div>
             </article>
           </div>
@@ -278,31 +292,31 @@
           <p class="label">04</p>
           <h2 class="h2" id="skills-h">Skills</h2>
         </div>
-        <div class="section-body">
-          <div class="skills">
+        <div data-reveal class="section-body">
+          <div class="skills" data-reveal>
             <div class="skill-group">
               <p class="label">Languages</p>
-              <ul class="tags"><li class="tag mono">TypeScript</li><li class="tag mono">JavaScript</li><li class="tag mono">Python</li><li class="tag mono">Java</li><li class="tag mono">SQL</li><li class="tag mono">Bash</li><li class="tag mono">PHP</li></ul>
+              <ul class="tags"><li class="tag">TypeScript</li><li class="tag">JavaScript</li><li class="tag">Python</li><li class="tag">Java</li><li class="tag">SQL</li><li class="tag">Bash</li><li class="tag">PHP</li></ul>
             </div>
             <div class="skill-group">
               <p class="label">Frameworks</p>
-              <ul class="tags"><li class="tag mono">Next.js</li><li class="tag mono">React Native</li><li class="tag mono">Expo</li><li class="tag mono">Node.js</li><li class="tag mono">Spring Boot</li><li class="tag mono">JPA</li><li class="tag mono">RabbitMQ</li></ul>
+              <ul class="tags"><li class="tag">Next.js</li><li class="tag">React Native</li><li class="tag">Expo</li><li class="tag">Node.js</li><li class="tag">Spring Boot</li><li class="tag">JPA</li><li class="tag">RabbitMQ</li></ul>
             </div>
             <div class="skill-group">
               <p class="label">AI</p>
-              <ul class="tags"><li class="tag mono">LLM apps</li><li class="tag mono">Prompt engineering</li><li class="tag mono">Generative AI content</li><li class="tag mono">Claude Code agents</li></ul>
+              <ul class="tags"><li class="tag">LLM apps</li><li class="tag">Prompt engineering</li><li class="tag">Generative AI content</li><li class="tag">Claude Code agents</li></ul>
             </div>
             <div class="skill-group">
               <p class="label">Databases</p>
-              <ul class="tags"><li class="tag mono">PostgreSQL</li><li class="tag mono">Supabase</li><li class="tag mono">MySQL</li><li class="tag mono">Redis</li><li class="tag mono">MongoDB</li><li class="tag mono">Firebase</li></ul>
+              <ul class="tags"><li class="tag">PostgreSQL</li><li class="tag">Supabase</li><li class="tag">MySQL</li><li class="tag">Redis</li><li class="tag">MongoDB</li><li class="tag">Firebase</li></ul>
             </div>
             <div class="skill-group">
               <p class="label">Infrastructure</p>
-              <ul class="tags"><li class="tag mono">Vercel</li><li class="tag mono">GCP</li><li class="tag mono">Vertex AI</li><li class="tag mono">AWS</li><li class="tag mono">Upstash QStash</li><li class="tag mono">Docker</li><li class="tag mono">CI/CD</li><li class="tag mono">OpenStack</li></ul>
+              <ul class="tags"><li class="tag">Vercel</li><li class="tag">GCP</li><li class="tag">Vertex AI</li><li class="tag">AWS</li><li class="tag">Upstash QStash</li><li class="tag">Docker</li><li class="tag">CI/CD</li><li class="tag">OpenStack</li></ul>
             </div>
             <div class="skill-group">
               <p class="label">Developer tools</p>
-              <ul class="tags"><li class="tag mono">Git</li><li class="tag mono">WSL</li><li class="tag mono">VS Code</li><li class="tag mono">IntelliJ</li><li class="tag mono">Lark</li><li class="tag mono">OpenMPI</li></ul>
+              <ul class="tags"><li class="tag">Git</li><li class="tag">WSL</li><li class="tag">VS Code</li><li class="tag">IntelliJ</li><li class="tag">Lark</li><li class="tag">OpenMPI</li></ul>
             </div>
           </div>
         </div>
@@ -313,7 +327,7 @@
           <p class="label">05</p>
           <h2 class="h2" id="education-h">Education &amp; Awards</h2>
         </div>
-        <div class="section-body edu-body-wrap">
+        <div data-reveal class="section-body edu-body-wrap">
           <div class="edu">
             <p class="edu-date mono">Sep 2021 — Jun 2025</p>
             <div class="edu-body">
@@ -331,7 +345,7 @@
               <p class="small subtle">Third Prize, Vietnamese Mathematical Olympiad 2019</p>
             </div>
           </div>
-          <ul class="awards">
+          <ul class="awards" data-reveal>
             <li class="award"><p class="label">Award</p><p>Third Prize</p><p class="small muted">Vietnamese Mathematical Olympiad, 2019</p></li>
             <li class="award"><p class="label">Scholarship</p><p>Full-ride scholarship</p><p class="small muted">Peter the Great St. Petersburg Polytechnic University</p></li>
             <li class="award"><p class="label">Certificate</p><p>B1, Cambridge English</p><p class="small muted">2015</p></li>
@@ -344,8 +358,8 @@
           <p class="label">06</p>
           <h2 class="h2" id="contact-h">Contact</h2>
         </div>
-        <div class="section-body contact">
-          <p class="lead muted">Building an LLM product, or need someone to own a feature end-to-end? I reply fastest by email.</p>
+        <div data-reveal class="section-body contact">
+          <p class="lead muted">Building an LLM product, or need someone to own a feature end‑to‑end? I reply fastest by email.</p>
           <p><a class="email-link" href="mailto:work.dat2002@gmail.com">work.dat2002@gmail.com</a></p>
           <p class="cta-row">
             <a class="btn btn-secondary ext" href="https://github.com/dat-2k2" target="_blank" rel="noopener">GitHub</a>
@@ -361,6 +375,7 @@
     <p class="mono subtle">English (professional) · Vietnamese (native) · Russian (elementary) · <a href="#top">Back to top ↑</a></p>
   </footer>
 
+  <script src="kit/kit.js" defer></script>
   <script src="script.js" defer></script>
 </body>
 </html>
